@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gauge.css" />
+    <title>Gauge</title>
+</head>
+<body>
+    <div class="gauge">
+        <div class="gauge__body">
+            <div class="gauge__fill"></div>
+            <div class="gauge__cover"></div>
+        </div>
+    </div>
+
+    <script>
+        const gaugeElement = document.querySelector(".gauge");
+        
+        function setGaugeVAlue (gauge, value) {
+            if (value < 0 || value > 1){
+                return
+            }
+
+            gauge.querySelector(".gauge__fill").style.transform = `rotate(${value/2}turn)`;
+            gauge.querySelector(".gauge__cover").textContent = `${Math.round(value * 100)}%`;
+
+        }
+        setGaugeVAlue(gaugeElement, 0.3)
+    </script>
+
+</body>
+</html>
